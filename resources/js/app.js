@@ -54,7 +54,7 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right', mobi
 //typed js
 if(!window.matchMedia('only screen and (max-width: 768px)').matches){
     const typed = new Typed('.multiple-text', {
-        strings: ['FullStack Developer','Backend Developer'],
+        strings: ['Developer','FullStack Developer','Backend Developer'],
         typeSpeed: 100,
         backSpeed: 100,
         backDelay: 1000,

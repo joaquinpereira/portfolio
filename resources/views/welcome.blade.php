@@ -13,15 +13,15 @@
     </head>
     <body>
         <header class="header">
-            <a href="" class="logo">@lang('Portfolio')</a>
+            <a href="" class="logo">Joaquin Pereira</a>
 
             <i class='bx bx-menu' id="menu-icon"></i>
 
             <nav class="navbar">
                 <a href="#home" class="active">@lang('Home')</a>
-                <a href="#about">@lang('About')</a>
                 <a href="#skills">@lang('Skills')</a>
                 <a href="#portfolio">@lang('Portfolio')</a>
+                <a href="#about">@lang('About')</a>
                 <a href="#contact">@lang('Contact')</a>
             </nav>
         </header>
@@ -30,39 +30,19 @@
             <div class="home-content">
                 <h3>Hello, It's Me</h3>
                 <h1>Joaquin Pereira</h1>
-                <h3>And I'm a <span class="multiple-text">FullStack Developer</span></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, cumque vel! Excepturi qui fugit ut, eligendi quae omnis dolor ratione?
-                    Reiciendis quaerat perspiciatis quod enim dolor dicta eos, nesciunt tenetur.</p>
+                <h3>And I'm a <span class="multiple-text"></span></h3>
+                <p>Soy un desarrollador con más de 9 años de experiencia, me considero una persona muy responsable, honesto, respetuoso, amigable, creativo, innovador, organizado y siempre muy dispuesto al trabajo duro aportando mis conocimientos.</p>
+                <p>Me apasiona aprender y conocer cosas nuevas del desarrollo de software y me encanta participar en proyectos ambiciosos y complejos porque considero que son la mejor forma de consolidar el conocimiento a parte de la satisfacción de participar en el desarrollo de un producto.</p>
                 <div class="social-media">
                     <a href="#"><i class='bx bxl-twitter'></i></a>
                     <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-dev-to'></i></a>
                 </div>
                 <a href="#" class="btn">Download CV</a>
 
             </div>
             <div class="home-img">
                 <img src="/images/avatar5.png" alt="avatar">
-            </div>
-        </section>
-
-        <section class="about" id="about">
-            <div class="about-img">
-                <img src="/images/developer.png" alt="developer image">
-            </div>
-
-            <div class="about-content">
-                <h2 class="heading">About <span>Me</span></h2>
-                <h3>FullStack Developer</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis error animi adipisci quam vel id fugit,
-                    ducimus, expedita maiores qui nihil, doloribus cupiditate asperiores inventore corrupti similique ea sed alias.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam molestias aut dolores reiciendis quisquam provident illum.
-                     Excepturi optio sapiente, molestias dignissimos illum iusto, quod, accusantium rem neque iste amet error?
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ducimus pariatur cupiditate, odio veniam vero labore eos hic,
-                     commodi corrupti laudantium laboriosam iste consequatur expedita itaque ab at nemo modi?
-                </p>
-                <a href="#" class="btn">Read More</a>
-
             </div>
         </section>
 
@@ -170,6 +150,24 @@
                 </div>
             </div>
 
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-img">
+                <img src="/images/developer.png" alt="developer image">
+            </div>
+
+            <div class="about-content">
+                <h2 class="heading">About <span>Me</span></h2>
+                <h3>FullStack Developer</h3>
+                <p>Nací en la hermosa ciudad de Mérida de los Andes de Venezuela, mi país pese a su caótica situación económica y política, es una hermosa nación con innumerables y variados paisajes naturales y con un pueblo muy solidario y alegre.</p>
+                <p>Desde mi infancia, me apasione por el mundo de la tecnología, dedicando largas horas a vídeos juegos y a explorar diferentes programas en mi computadora.</p>
+                <p>En la universidad al estudiar Bioánalis, compre una calculadora casio que contaba con un modulo de basic para programar pequeñas rutinas, dicha característica me ensimismo a tal punto que todas las formulas que veía en cálculo y estadística las programaba, pasaba muchas horas programando en basic hasta que un amigo estudiante de ingeniería me invito a asistir a una clase de programación en lenguaje C como oyente, lo que vi en esa clase me marco al punto que solo pensaba en programación y esto me llevo a la determinación de decidir a dedicar mi vida profesional a la informática.</p>
+                <p>Siendo estudiante de informática conocí personas destacadas en la programación y participe junto a compañeros de estudios en las olimpiadas Venezolana de informática, en la que obtuve lugares destacados en dichas competencias como Subcampeón y Campeón en programación en distintos años.</p>
+                <p>Al graduarme tuve la fortuna trabajar en el Centro Nacional de Tecnologías de la Información de la que obtuve una valiosa experiencia profesional y personal. Luego decidí dedicarme a trabajar en modo remoto y esto me ha permitido acumular una gran cantidad de experiencia, trabajando y conociendo a empresas y personas increíbles y maravillosas de todo el mundo.</p>
+                <a href="#" class="btn hidden">Read More</a>
+
+            </div>
         </section>
 
         <section class="contact" id="contact">
