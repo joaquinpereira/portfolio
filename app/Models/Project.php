@@ -27,8 +27,6 @@ class Project extends Model
 
         $attributes['user_id'] = auth()->id();
 
-        //$attributes['banner'] = request()->file('banner')->store('posts','public/project');
-
         return static::query()->create($attributes);
     }
 
