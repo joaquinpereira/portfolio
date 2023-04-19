@@ -22,6 +22,10 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function technologies()
+    {
+        return $this->morphToMany(Technology::class, 'technologizable');
+    }
 
     public static function create(array $attributes = []){
 
@@ -29,5 +33,4 @@ class Project extends Model
 
         return static::query()->create($attributes);
     }
-
 }

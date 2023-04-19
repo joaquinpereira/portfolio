@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\JobResource\Pages;
 use App\Filament\Resources\JobResource\RelationManagers;
+use App\Filament\Resources\Traits\HasTechnologies;
 use App\Models\Job;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
@@ -17,6 +18,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class JobResource extends Resource
 {
+    use HasTechnologies;
+
     protected static ?string $model = Job::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -26,6 +29,7 @@ class JobResource extends Resource
         return $form->columns(1)->schema([
             Grid::make(2)
                 ->schema([
+                    self::formTechnologiesField(),
                     Forms\Components\TextInput::make('position')->required(),
                     Forms\Components\TextInput::make('company')->required(),
                     Forms\Components\TextInput::make('web_company'),
@@ -42,17 +46,18 @@ class JobResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('position')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('company')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('start_date')->since(),
+                self::technologiesColumn(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                self::technologiesAction(Job::class),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
+                self::changeTechnologiesAction(),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }

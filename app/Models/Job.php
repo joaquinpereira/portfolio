@@ -27,6 +27,11 @@ class Job extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function technologies()
+    {
+        return $this->morphToMany(Technology::class, 'technologizable');
+    }
+
     public static function create(array $attributes = []){
 
         $attributes['user_id'] = auth()->id();

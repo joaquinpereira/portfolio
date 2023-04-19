@@ -13,9 +13,12 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\Traits\HasTechnologies;
 
 class ProjectResource extends Resource
 {
+    use HasTechnologies;
+
     protected static ?string $model = Project::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -23,6 +26,7 @@ class ProjectResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->columns(1)->schema([
+                    self::formTechnologiesField(),
                     Forms\Components\TextInput::make('name')->required(),
                     Forms\Components\Textarea::make('description')->required(),
                     FileUpload::make('banner')->image()
@@ -36,16 +40,18 @@ class ProjectResource extends Resource
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\ImageColumn::make('banner'),
+                self::technologiesColumn(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                self::technologiesAction(Project::class),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
+                self::changeTechnologiesAction(),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }

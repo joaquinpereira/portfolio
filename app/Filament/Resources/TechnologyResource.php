@@ -32,7 +32,7 @@ class TechnologyResource extends Resource
             Grid::make(3)
                 ->schema([
                     Forms\Components\TextInput::make('name')->required(),
-                    Forms\Components\TextInput::make('expertise')->required(),
+                    Forms\Components\TextInput::make('expertise')->default(0)->numeric(),
                     Forms\Components\TextInput::make('icon')->required(),
             ]),
             Forms\Components\Textarea::make('description')->required(),
@@ -44,6 +44,7 @@ class TechnologyResource extends Resource
     {
         Filament::registerStyles([
             'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
         ]);
 
         return $table
