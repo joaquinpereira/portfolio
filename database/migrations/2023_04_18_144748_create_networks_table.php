@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('networks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('icon')->nullable();
-            $table->string('image')->nullable();
+            $table->text('url');
+            $table->unsignedBigInteger('networkable_id');
+            $table->string('networkable_type');
+            $table->foreignId('network_info_id')->constrained('networks_info')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

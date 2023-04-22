@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\NetworkResource\Pages;
 use App\Filament\Resources\NetworkResource\RelationManagers;
-use App\Models\Network;
+use App\Models\NetworkInfo;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class NetworkResource extends Resource
 {
-    protected static ?string $model = Network::class;
+    protected static ?string $model = NetworkInfo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -69,8 +69,6 @@ class NetworkResource extends Resource
     {
         return [
             'index' => Pages\ListNetworks::route('/'),
-            'create' => Pages\CreateNetwork::route('/create'),
-            'edit' => Pages\EditNetwork::route('/{record}/edit'),
         ];
     }
 }

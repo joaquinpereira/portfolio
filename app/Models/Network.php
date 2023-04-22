@@ -10,20 +10,16 @@ class Network extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'image',
-        'icon',
+        'url',
+        'network_info_id',
     ];
 
-    public $timestamps = false;
+    protected $casts = [
+        'test' => ['laravel','php']
+    ];
 
-    public function users()
+    public function networkInfo()
     {
-        return $this->morphedByMany(User::class, 'networkable');
-    }
-
-    public function references()
-    {
-        return $this->morphedByMany(Reference::class, 'networkable');
+        return $this->belongsTo(NetworkInfo::class);
     }
 }

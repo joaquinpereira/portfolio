@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('networkables', function (Blueprint $table) {
+        Schema::create('networks_info', function (Blueprint $table) {
             $table->id();
-            $table->text('url');
-            $table->unsignedBigInteger('networkable_id');
-            $table->string('networkable_type');
-            $table->foreignId('network_id')->constrained('networks')->onDelete('cascade');
+            $table->string('name');
+            $table->string('icon')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('networkables');
+        Schema::dropIfExists('networks_info');
     }
 };

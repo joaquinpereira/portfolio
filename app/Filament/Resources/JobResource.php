@@ -73,8 +73,6 @@ class JobResource extends Resource
     {
         return [
             'index' => Pages\ListJobs::route('/'),
-            'create' => Pages\CreateJob::route('/create'),
-            'edit' => Pages\EditJob::route('/{record}/edit'),
         ];
     }
 }

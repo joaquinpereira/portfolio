@@ -58,7 +58,6 @@ class TechnologyResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -78,8 +77,6 @@ class TechnologyResource extends Resource
     {
         return [
             'index' => Pages\ListTechnologies::route('/'),
-            'create' => Pages\CreateTechnology::route('/create'),
-            'edit' => Pages\EditTechnology::route('/{record}/edit'),
         ];
     }
 }

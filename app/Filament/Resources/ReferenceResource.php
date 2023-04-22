@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReferenceResource\Pages;
 use App\Filament\Resources\ReferenceResource\RelationManagers;
+use App\Filament\Resources\Traits\HasNetworks;
 use App\Models\Reference;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -19,6 +20,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ReferenceResource extends Resource
 {
+    use HasNetworks;
+
     protected static ?string $model = Reference::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -42,19 +45,29 @@ class ReferenceResource extends Resource
 
     public static function table(Table $table): Table
     {
+        Filament::registerStyles([
+            'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+        ]);
+
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('position')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('picture'),
+                self::technologiesColumn(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                self::addNetworksAction(Reference::class),
+                self::networksAction(Reference::class),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])->label("actions"),
+
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -64,7 +77,7 @@ class ReferenceResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\NetworksRelationManager::class,
         ];
     }
 
@@ -72,7 +85,7 @@ class ReferenceResource extends Resource
     {
         return [
             'index' => Pages\ListReferences::route('/'),
-            'create' => Pages\CreateReference::route('/create'),
+            //'create' => Pages\CreateReference::route('/create'),
             'edit' => Pages\EditReference::route('/{record}/edit'),
         ];
     }
