@@ -50,8 +50,8 @@ class TechnologyResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('icon')->html(),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('icon')->extraAttributes(['class' => 'bg-gray-800'])->html(),
+                //Tables\Columns\ImageColumn::make('image'),
                 IconColumn::make('is_published')->boolean()->searchable(),
             ])
             ->filters([

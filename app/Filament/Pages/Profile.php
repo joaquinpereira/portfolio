@@ -2,6 +2,9 @@
 
 namespace App\Filament\Pages;
 
+use App\Models\Job;
+use App\Models\Reference;
+use App\Models\Technology;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
@@ -14,6 +17,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Pages\Page;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 class Profile extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
@@ -30,8 +34,17 @@ class Profile extends Page
     protected function getActions(): array
     {
         return [
-            $this->updateProfileAction($this->model)
+            $this->updateProfileAction($this->model),
+            $this->getProfilePdfAction()
         ];
+    }
+
+    public static function getProfilePdfAction(): Action
+    {
+        return Action::make('profile_pdf')
+            ->link(fn() => route('profile.pdf'))
+            ->openUrlInNewTab()
+        ;
     }
 
     public static function updateProfileAction($record) : Action
@@ -79,8 +92,29 @@ class Profile extends Page
                         RichEditor::make('about_long')->label('About long')
                     ]),
                 ])
-            ])
+            ]);
+    }
 
-            ;
+    public function downloadPdf(){
+
+        $user = User::find(1)->first();
+
+        $techs = Technology::all();
+
+        return view('layouts.pdfcv', [
+            'user' => $user,
+            'techs' => $techs,
+            'jobs' => $user->jobs,
+            'references' => $user->references,
+            'educations' => $user->educations,
+        ]);
+
+        // return PDF::loadView('layouts.pdfcv', [
+        //     'user' => $user,
+        //     'techs' => $techs
+        // ])
+        //  ->stream('archivo.pdf');
+
+        //return SnappyPDF::loadView('layouts.pdfcv')->inline('a.pdf');
     }
 }

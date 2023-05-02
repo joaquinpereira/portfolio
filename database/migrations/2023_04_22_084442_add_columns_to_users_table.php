@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->text('about_short')->nullable()->after('password');
             $table->text('about_long')->nullable()->after('about_short');
-            $table->text('address')->nullable()->after('about_long');
-            $table->string('telf')->nullable()->after('address');
+            $table->string('telf')->nullable()->after('about_long');
             $table->text('avatar')->nullable()->after('telf');
             $table->string('profession')->nullable()->after('avatar');
-            $table->string('zip_code')->nullable()->after('profession');
         });
     }
 
@@ -30,12 +28,9 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('about_short');
             $table->dropColumn('about_long');
-            $table->dropColumn('address');
             $table->dropColumn('telf');
             $table->dropColumn('avatar');
             $table->dropColumn('profession');
-            $table->dropColumn('telf');
-            $table->dropColumn('zip_code');
         });
     }
 };

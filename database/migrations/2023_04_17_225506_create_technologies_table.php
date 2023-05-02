@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->integer('expertise')->default(0);
             $table->text('translations')->nullable();
-            $table->string('image')->nullable();
-            $table->string('icon')->nullable();
+            $table->text('image')->nullable();
+            $table->text('icon')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamps();
         });

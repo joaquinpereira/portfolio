@@ -14,10 +14,6 @@ class Network extends Model
         'network_info_id',
     ];
 
-    protected $casts = [
-        'test' => ['laravel','php']
-    ];
-
     public function networkInfo()
     {
         return $this->belongsTo(NetworkInfo::class);
