@@ -19,7 +19,6 @@ class TechnologyFactory extends Factory
         return [
             'name' => fake()->name(),
             'description' => fake()->paragraph(),
-            'expertise' => rand(10,100),
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-laravel"></i>',

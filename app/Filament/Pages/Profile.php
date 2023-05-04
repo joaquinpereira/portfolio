@@ -2,9 +2,6 @@
 
 namespace App\Filament\Pages;
 
-use App\Models\Job;
-use App\Models\Reference;
-use App\Models\Technology;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
@@ -99,15 +96,22 @@ class Profile extends Page
 
         $user = User::find(1)->first();
 
-        $techs = Technology::all();
-
         return view('layouts.pdfcv', [
             'user' => $user,
-            'techs' => $techs,
+            'techs' => $user->technologies,
             'jobs' => $user->jobs,
             'references' => $user->references,
             'educations' => $user->educations,
         ]);
+
+        $pdfLayout = view('layouts.pdfcv', [
+            'user' => $user,
+            'techs' => $user->technologies,
+            'jobs' => $user->jobs,
+            'references' => $user->references,
+            'educations' => $user->educations,
+        ])->render();
+        return response()->json(array('success' => true, 'html'=>$pdfLayout));
 
         // return PDF::loadView('layouts.pdfcv', [
         //     'user' => $user,

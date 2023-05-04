@@ -38,7 +38,7 @@
                     <a href="#"><i class='bx bxl-linkedin'></i></a>
                     <a href="#"><i class='bx bxl-dev-to'></i></a>
                 </div>
-                <a href="#" class="btn">Download CV</a>
+                <a href="javascript:openModal()" id="downloadBtn" class="btn">Download CV</a>
 
             </div>
             <div class="home-img">
@@ -196,10 +196,59 @@
             </div>
         </footer>
 
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3>Curriculum Vitae</h3>
+                </div>
+                <div class="modal-body">
+                    <iframe id="cv-iframe" class="responsive-iframe" src="{{ route('profile.pdf') }}">Your browser isn't compatible</iframe>
+                </div>
+            </div>
+
+        </div>
+
         <script src="https://unpkg.com/scrollreveal"></script>
 
         <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
 
         @vite(['resources/js/app.js'])
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("downloadBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            function openModal(){
+                document.getElementById("myModal").style.display = "block";
+                document.getElementById('cv-iframe').contentWindow.generatePDF();
+            }
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        </script>
     </body>
 </html>

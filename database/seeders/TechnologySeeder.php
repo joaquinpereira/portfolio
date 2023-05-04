@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Technology;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,33 +14,43 @@ class TechnologySeeder extends Seeder
      */
     public function run(): void
     {
+        $user = User::find(1)->first();
+
+        $this->create_technologies($user);
+    }
+
+    private function create_technologies($user)
+    {
         //php
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'PHP',
             'description' => 'pendiente',
-            'expertise' => '80',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-php"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '80']
+        ]);
 
         //laravel
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Laravel',
             'description' => 'pendiente',
-            'expertise' => '75',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-laravel"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '75']
+        ]);
 
         //yii
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'YII',
             'description' => 'pendiente',
-            'expertise' => '40',
             'translations' => '',
             'image' => '',
             'icon' => '<svg class="currentColorText" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -49,12 +60,14 @@ class TechnologySeeder extends Seeder
             </svg>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '40']
+        ]);
 
         //postgresql
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Postgresql',
             'description' => 'pendiente',
-            'expertise' => '40',
             'translations' => '',
             'image' => '',
             'icon' => '<svg class="currentColorText" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -64,12 +77,14 @@ class TechnologySeeder extends Seeder
             </svg>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '40']
+        ]);
 
         //mysql
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Mysql',
             'description' => 'pendiente',
-            'expertise' => '60',
             'translations' => '',
             'image' => '',
             'icon' => '<svg class="currentColorText mysql" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -79,78 +94,92 @@ class TechnologySeeder extends Seeder
             </svg>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '60']
+        ]);
 
         //JS
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'JavaScript',
             'description' => 'pendiente',
-            'expertise' => '40',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-js"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '40']
+        ]);
 
         //nodejs
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'NodeJs',
             'description' => 'pendiente',
-            'expertise' => '40',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-node-js"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '40']
+        ]);
 
         //Java
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Java',
             'description' => 'pendiente',
-            'expertise' => '65',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-java"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '65']
+        ]);
 
         //git
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Git',
             'description' => 'pendiente',
-            'expertise' => '65',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-git"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '65']
+        ]);
 
         //linux
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Linux',
             'description' => 'pendiente',
-            'expertise' => '65',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-linux"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '65']
+        ]);
 
         //DOCKER
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Docker',
             'description' => 'pendiente',
-            'expertise' => '65',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-docker"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '65']
+        ]);
 
         //ionic
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Ionic',
             'description' => 'pendiente',
-            'expertise' => '60',
             'translations' => '',
             'image' => '',
             'icon' => '<svg class="currentColorText" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
@@ -158,38 +187,46 @@ class TechnologySeeder extends Seeder
             </svg>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '60']
+        ]);
 
         //Angular
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Angular',
             'description' => 'pendiente',
-            'expertise' => '60',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-angular"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '60']
+        ]);
 
         //Vue
-        Technology::factory()->create([
+        $tech = Technology::factory()->create([
             'name' => 'Vue',
             'description' => 'pendiente',
-            'expertise' => '60',
             'translations' => '',
             'image' => '',
             'icon' => '<i class="fa-brands fa-vuejs"></i>',
             'is_published' => 1,
         ]);
+        $user->technologies()->attach([
+            $tech->id => ['expertise' => '60']
+        ]);
 
-        // Technology::factory()->create([
+        // $tech = Technology::factory()->create([
         //     'name' => '',
         //     'description' => 'pendiente',
-        //     'expertise' => '',
         //     'translations' => '',
         //     'image' => '',
         //     'icon' => '',
         //     'is_published' => 1,
         // ]);
-
+        // $user->technologies()->sync([
+        //     $tech->id => ['expertise' => '']
+        // ]);
     }
 }

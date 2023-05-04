@@ -12,7 +12,6 @@ class Technology extends Model
     protected $fillable = [
         'name',
         'description',
-        'expertise',
         'translations',
         'image',
         'icon',

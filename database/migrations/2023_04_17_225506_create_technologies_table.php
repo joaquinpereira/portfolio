@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->integer('expertise')->default(0);
             $table->text('translations')->nullable();
             $table->text('image')->nullable();
             $table->text('icon')->nullable();
