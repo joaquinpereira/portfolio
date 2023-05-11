@@ -13,7 +13,7 @@
     </head>
     <body>
         <header class="header">
-            <a href="" class="logo">Joaquin Pereira</a>
+            <a href="" class="logo">{!! $user->name !!}</a>
 
             <i class='bx bx-menu' id="menu-icon"></i>
 
@@ -23,22 +23,32 @@
                 <a href="#portfolio">@lang('Portfolio')</a>
                 <a href="#about">@lang('About')</a>
                 <a href="#contact">@lang('Contact')</a>
+
+                <ul style="display: inline-flex">
+                    <li>
+                        <a href="#"><i class='bx bx-globe'></i> {{Str::upper($locale)}}</a>
+                      <ul class="dropdown">
+                        <li><a href="/lang/es">Español</a></li>
+                        <li><a href="/lang/en">English</a></li>
+                      </ul>
+                    </li>
+                </ul>
+
             </nav>
         </header>
 
         <section class="home" id="home">
             <div class="home-content">
-                <h3>Hello, It's Me</h3>
-                <h1>Joaquin Pereira</h1>
-                <h3>And I'm a <span class="multiple-text"></span></h3>
-                <p>Soy un desarrollador con más de 9 años de experiencia, me considero una persona muy responsable, honesto, respetuoso, amigable, creativo, innovador, organizado y siempre muy dispuesto al trabajo duro aportando mis conocimientos.</p>
-                <p>Me apasiona aprender y conocer cosas nuevas del desarrollo de software y me encanta participar en proyectos ambiciosos y complejos porque considero que son la mejor forma de consolidar el conocimiento a parte de la satisfacción de participar en el desarrollo de un producto.</p>
+                <h3>@lang('Hola, mi nombre es')</h3>
+                <h1>{!! $user->name !!}</h1>
+                {{-- <h3>And I'm a <span class="multiple-text"></span></h3> --}}
+                <div>{!! $user->about_short !!}</div>
                 <div class="social-media">
                     <a href="#"><i class='bx bxl-twitter'></i></a>
                     <a href="#"><i class='bx bxl-linkedin'></i></a>
                     <a href="#"><i class='bx bxl-dev-to'></i></a>
                 </div>
-                <a href="javascript:openModal()" id="downloadBtn" class="btn">Download CV</a>
+                <a href="javascript:openModal()" id="downloadBtn" class="btn">@lang('Descargar CV')</a>
 
             </div>
             <div class="home-img">
@@ -158,38 +168,35 @@
             </div>
 
             <div class="about-content">
-                <h2 class="heading">About <span>Me</span></h2>
-                <h3>FullStack Developer</h3>
-                <p>Nací en la hermosa ciudad de Mérida de los Andes de Venezuela, mi país pese a su caótica situación económica y política, es una hermosa nación con innumerables y variados paisajes naturales y con un pueblo muy solidario y alegre.</p>
-                <p>Desde mi infancia, me apasione por el mundo de la tecnología, dedicando largas horas a vídeos juegos y a explorar diferentes programas en mi computadora.</p>
-                <p>En la universidad al estudiar Bioánalis, compre una calculadora casio que contaba con un modulo de basic para programar pequeñas rutinas, dicha característica me ensimismo a tal punto que todas las formulas que veía en cálculo y estadística las programaba, pasaba muchas horas programando en basic hasta que un amigo estudiante de ingeniería me invito a asistir a una clase de programación en lenguaje C como oyente, lo que vi en esa clase me marco al punto que solo pensaba en programación y esto me llevo a la determinación de decidir a dedicar mi vida profesional a la informática.</p>
-                <p>Siendo estudiante de informática conocí personas destacadas en la programación y participe junto a compañeros de estudios en las olimpiadas Venezolana de informática, en la que obtuve lugares destacados en dichas competencias como Subcampeón y Campeón en programación en distintos años.</p>
-                <p>Al graduarme tuve la fortuna trabajar en el Centro Nacional de Tecnologías de la Información de la que obtuve una valiosa experiencia profesional y personal. Luego decidí dedicarme a trabajar en modo remoto y esto me ha permitido acumular una gran cantidad de experiencia, trabajando y conociendo a empresas y personas increíbles y maravillosas de todo el mundo.</p>
-                <a href="#" class="btn hidden">Read More</a>
+                <h2 class="heading">@lang('acerca de mi')</h2>
+                <h3>{!! $user->profession !!}</h3>
+                <div>{!! $user->about_long !!}</div>
+
+                {{-- <a href="#" class="btn hidden">Read More</a> --}}
 
             </div>
         </section>
 
         <section class="contact" id="contact">
-            <h2 class="heading">@lang('Contact') <span>Me!</span></h2>
+            <h2 class="heading">@lang('Contactame')</h2>
 
             <form action="#">
                 <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email address">
+                    <input type="text" placeholder="@lang('Nombre Completo')">
+                    <input type="email" placeholder="@lang('Correo electrónico')">
                 </div>
                 <div class="input-box">
-                    <input type="number" placeholder="Mobile Number">
-                    <input type="text" placeholder="Email Subject">
+                    <input type="number" placeholder="@lang('Número telefónico')">
+                    <input type="text" placeholder="@lang('Asunto del correo')">
                 </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <input type="submit" value="Send Message" class="btn">
+                <textarea name="" id="" cols="30" rows="10" placeholder="@lang('tu mensaje')"></textarea>
+                <input type="submit" value="@lang('enviar mensaje')" class="btn">
             </form>
         </section>
 
         <footer class="footer">
             <div class="footer-text">
-                <p>Developed in laravel with css and js from Miranda, Venezuela.</p>
+                @lang('desarrollado en')
             </div>
             <div class="footer-icon-top">
                 <a href="#home"><i class='bx bx-up-arrow-alt' ></i></a>
@@ -203,7 +210,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <span class="close">&times;</span>
-                <h3>Curriculum Vitae</h3>
+                <h3>@lang('Curriculum Vitae')</h3>
                 </div>
                 <div class="modal-body">
                     <iframe id="cv-iframe" class="responsive-iframe" src="{{ route('profile.pdf') }}">Your browser isn't compatible</iframe>

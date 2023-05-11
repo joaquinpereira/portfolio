@@ -12,6 +12,17 @@
     "Contacto": "Contacto",
     "Email": "Email",
     "Address": "Dirección",
-    "Education": "Educación"
-
+    "Education": "Educación",
+    "Hola, mi nombre es": "Hola, mi nombre es",
+    "Descargar CV": "Descargar CV",
+    "acerca de mi": "Acerca de <span>Mí</span>",
+    "Curriculum Vitae": "Curriculum Vitae",
+    "Contactame":"Contacta<span>me!</span>",
+    "Nombre Completo": "Nombre Completo",
+    "Correo electrónico": "Correo Electrónico",
+    "Número telefónico": "Número Telefónico",
+    "Asunto del correo": "Asunto del correo",
+    "tu mensaje": "Mensaje",
+    "enviar mensaje": "Enviar Mensaje",
+    "desarrollado en": "<p>Desarrollado in laravel con css y js en Miranda, Venezuela.</p>"
 }

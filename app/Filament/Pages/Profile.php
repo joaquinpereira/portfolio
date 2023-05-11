@@ -104,21 +104,5 @@ class Profile extends Page
             'educations' => $user->educations,
         ]);
 
-        $pdfLayout = view('layouts.pdfcv', [
-            'user' => $user,
-            'techs' => $user->technologies,
-            'jobs' => $user->jobs,
-            'references' => $user->references,
-            'educations' => $user->educations,
-        ])->render();
-        return response()->json(array('success' => true, 'html'=>$pdfLayout));
-
-        // return PDF::loadView('layouts.pdfcv', [
-        //     'user' => $user,
-        //     'techs' => $techs
-        // ])
-        //  ->stream('archivo.pdf');
-
-        //return SnappyPDF::loadView('layouts.pdfcv')->inline('a.pdf');
     }
 }
