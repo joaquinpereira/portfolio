@@ -2,8 +2,9 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use  App\Filament\Pages\Profile;
+use App\Filament\Pages\Profile;
 use App\Http\Controllers\LocalizationController;
+Use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\App;
 /*
 |--------------------------------------------------------------------------

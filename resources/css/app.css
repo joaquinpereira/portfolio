@@ -616,3 +616,27 @@ ul li ul li {
     clear: both;
     width: 100%;
 }
+
+.success{
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: var(--main-color);
+    padding: 1.5rem 2.8rem;
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--second-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.success-span{
+    color: var(--second-bg-color);
+}
+
+.close-success:hover{
+    cursor: pointer;
+}

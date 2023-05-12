@@ -10,6 +10,8 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         @vite(['resources/css/app.css'])
+
+        <livewire:styles />
     </head>
     <body>
         <header class="header">
@@ -178,20 +180,9 @@
         </section>
 
         <section class="contact" id="contact">
-            <h2 class="heading">@lang('Contactame')</h2>
 
-            <form action="#">
-                <div class="input-box">
-                    <input type="text" placeholder="@lang('Nombre Completo')">
-                    <input type="email" placeholder="@lang('Correo electrónico')">
-                </div>
-                <div class="input-box">
-                    <input type="number" placeholder="@lang('Número telefónico')">
-                    <input type="text" placeholder="@lang('Asunto del correo')">
-                </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="@lang('tu mensaje')"></textarea>
-                <input type="submit" value="@lang('enviar mensaje')" class="btn">
-            </form>
+            @livewire("contact-component")
+
         </section>
 
         <footer class="footer">
@@ -257,5 +248,11 @@
             }
 
         </script>
+
+        <livewire:scripts />
+
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
     </body>
 </html>

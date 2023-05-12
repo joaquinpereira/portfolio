@@ -24,5 +24,6 @@
     "Asunto del correo": "Asunto del correo",
     "tu mensaje": "Mensaje",
     "enviar mensaje": "Enviar Mensaje",
-    "desarrollado en": "<p>Desarrollado in laravel con css y js en Miranda, Venezuela.</p>"
+    "desarrollado en": "<p>Desarrollado in laravel con css y js en Miranda, Venezuela.</p>",
+    "msg_success": "Mensaje enviado con éxito"
 }
