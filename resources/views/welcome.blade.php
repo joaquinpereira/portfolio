@@ -8,6 +8,7 @@
         <title>@lang('Personal Portfolio')</title>
 
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         @vite(['resources/css/app.css'])
 
@@ -59,36 +60,9 @@
         </section>
 
         <section class="skills" id="skills">
-            <h2 class="heading">My <span>Skills</span></h2>
 
-            <div class="skills-container">
-                <div class="skill-box">
-                    <i class='bx bx-code-alt' ></i>
-                    <h3>Backend Development</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit explicabo ad, tempore molestias nemo
-                        eaque ipsam consectetur quod et quaerat dolorem cumque beatae saepe eveniet laborum veritatis
-                        repellendus ipsa odio!</p>
-                    <a href="#" class="btn">Read More</a>
-                </div>
+            @include('partials.skills')
 
-                <div class="skill-box">
-                    <i class='bx bx-code-alt' ></i>
-                    <h3>Frontend Development</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit explicabo ad, tempore molestias nemo
-                        eaque ipsam consectetur quod et quaerat dolorem cumque beatae saepe eveniet laborum veritatis
-                        repellendus ipsa odio!</p>
-                    <a href="#" class="btn">Read More</a>
-                </div>
-
-                <div class="skill-box">
-                    <i class='bx bx-code-alt' ></i>
-                    <h3>Web Development</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit explicabo ad, tempore molestias nemo
-                        eaque ipsam consectetur quod et quaerat dolorem cumque beatae saepe eveniet laborum veritatis
-                        repellendus ipsa odio!</p>
-                    <a href="#" class="btn">Read More</a>
-                </div>
-            </div>
         </section>
 
         <section class="portfolio" id="portfolio">

@@ -25,5 +25,6 @@
     "tu mensaje": "Your Message",
     "enviar mensaje": "Send Message",
     "desarrollado en": "<p>Developed in laravel with css and js from Miranda, Venezuela.</p>",
-    "msg_success": "Message sent successfully"
+    "msg_success": "Message sent successfully",
+    "My Skills": "My <span>Skills</span>"
 }

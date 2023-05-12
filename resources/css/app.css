@@ -640,3 +640,23 @@ ul li ul li {
 .close-success:hover{
     cursor: pointer;
 }
+
+.skill-box svg{
+    display: inline-flex; /* 1 */
+    vertical-align: middle;
+    color: var(--main-color);
+}
+.progress{
+    height: 2.2rem !important;
+    border: 0.1rem solid var(--main-color);
+    border-radius: 4rem;
+}
+.bg-progress{
+    background: var(--text-color);
+    height: 2rem;
+    color: var(--bg-color);
+    border-radius: 4rem;
+}
+.bg-progress span{
+    color: var(--bg-color);
+}
