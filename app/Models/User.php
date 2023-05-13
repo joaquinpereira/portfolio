@@ -54,12 +54,12 @@ class User extends Authenticatable implements FilamentUser
 
     public function networks()
     {
-        return $this->morphMany(Network::class, 'networkable');
+        return $this->morphToMany(Network::class, 'networkable')->withPivot('url');
     }
 
     public function technologies()
     {
-        return $this->morphToMany(Technology::class, 'technologizable')->withPivot('expertise');;
+        return $this->morphToMany(Technology::class, 'technologizable')->withPivot('expertise');
     }
 
     public function jobs()

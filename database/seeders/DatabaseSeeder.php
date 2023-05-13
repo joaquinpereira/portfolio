@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReferenceSeeder::class);
         $this->call(JobSeeder::class);
         $this->call(EducationSeeder::class);
+        $this->call(NetworkSeed::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

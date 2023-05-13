@@ -15,6 +15,7 @@
         <livewire:styles />
     </head>
     <body>
+        @dump($user->networks())
         <header class="header">
             <a href="" class="logo">{!! $user->name !!}</a>
 
@@ -47,9 +48,9 @@
                 {{-- <h3>And I'm a <span class="multiple-text"></span></h3> --}}
                 <div>{!! $user->about_short !!}</div>
                 <div class="social-media">
-                    <a href="#"><i class='bx bxl-twitter'></i></a>
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-dev-to'></i></a>
+                    @foreach ($user->networks as $network)
+                        <a target="blank" href="{{$network->pivot->url}}">{!! $network->icon !!}</a>
+                    @endforeach
                 </div>
                 <a href="javascript:openModal()" id="downloadBtn" class="btn">@lang('Descargar CV')</a>
 

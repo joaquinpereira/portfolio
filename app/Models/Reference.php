@@ -36,6 +36,6 @@ class Reference extends Model
 
     public function networks()
     {
-        return $this->morphMany(Network::class, 'networkable');
+        return $this->morphToMany(Network::class, 'networkable')->withPivot('url');
     }
 }

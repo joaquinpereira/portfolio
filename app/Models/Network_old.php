@@ -9,12 +9,13 @@ class Network extends Model
 {
     use HasFactory;
 
-    protected $table = 'networks';
-
     protected $fillable = [
-        'name',
-        'image',
-        'icon',
+        'url',
+        'network_info_id',
     ];
 
+    public function networkInfo()
+    {
+        return $this->belongsTo(NetworkInfo::class);
+    }
 }
