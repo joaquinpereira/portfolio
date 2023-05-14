@@ -33,8 +33,6 @@ trait HasNetworks{
         return Action::make('Networks')
                 ->action(function ($record, array $data): void {
                     if(count($record->networks) >0){
-                        $networks = [];
-                        //dump($record->networks);
                         foreach($record->networks as $network){
                             if($data['delete'.$network->id]){
                                 $record->networks()->detach($network->id);
@@ -47,8 +45,6 @@ trait HasNetworks{
                                 ]);
                             }
                         }
-                        //dump($networks);
-                        //$record->networks()->sync($networks);
                     }
                 })
                 ->form(function($record): array {

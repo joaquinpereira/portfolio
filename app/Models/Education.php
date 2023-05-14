@@ -24,6 +24,13 @@ class Education extends Model
         'end_date' => 'datetime'
     ];
 
+    public static function create(array $attributes = []){
+
+        $attributes['user_id'] = auth()->id();
+
+        return static::query()->create($attributes);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

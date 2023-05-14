@@ -67,6 +67,11 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Job::class);
     }
 
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
     public function references()
     {
         return $this->hasMany(Reference::class);
