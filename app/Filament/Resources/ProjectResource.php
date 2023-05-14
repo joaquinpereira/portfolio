@@ -28,7 +28,10 @@ class ProjectResource extends Resource
         return $form->columns(1)->schema([
                     self::formTechnologiesField(),
                     Forms\Components\TextInput::make('name')->required(),
+                    Forms\Components\TextInput::make('excerpt')->required(),
                     Forms\Components\Textarea::make('description')->required(),
+                    Forms\Components\TextInput::make('url')->url(),
+                    Forms\Components\TextInput::make('url_github')->url(),
                     FileUpload::make('banner')->image()
                 ]);
     }
@@ -38,7 +41,7 @@ class ProjectResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('excerpt')->limit(50),
                 Tables\Columns\ImageColumn::make('banner'),
                 self::technologiesColumn(),
             ])
