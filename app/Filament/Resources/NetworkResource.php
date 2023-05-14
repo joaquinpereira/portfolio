@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\NetworkResource\Pages;
 use App\Filament\Resources\NetworkResource\RelationManagers;
-use App\Models\NetworkInfo;
+use App\Models\Network;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
@@ -18,25 +18,27 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class NetworkResource extends Resource
 {
-    protected static ?string $model = NetworkInfo::class;
+    protected static ?string $model = Network::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
-        return $form->columns(1)->schema([
-            Grid::make(2)
+        return $form
+            ->schema([
+                Grid::make(2)
                 ->schema([
                     Forms\Components\TextInput::make('name')->required(),
                     Forms\Components\TextInput::make('icon'),
-            ]),
-            FileUpload::make('image')->image(),
-        ]);
+                ]),
+                FileUpload::make('image')->image(),
+            ]);
     }
 
     public static function table(Table $table): Table
     {
         Filament::registerStyles([
+            'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css',
             'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
         ]);
 

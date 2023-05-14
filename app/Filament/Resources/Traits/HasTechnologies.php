@@ -36,7 +36,6 @@ trait HasTechnologies
                         TextInput::make('name')->lazy()
                             ->afterStateUpdated(fn ($set, $state) => $set('name', ucfirst($state)))
                             ->required(),
-                        TextInput::make('expertise')->default(0)->numeric(),
                         TextInput::make('icon')->required(),
                 ]),
                 Textarea::make('description')->required(),

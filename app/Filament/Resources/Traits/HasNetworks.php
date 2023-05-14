@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Traits;
 
 use App\Models\Network;
-use App\Models\NetworkInfo;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Forms\Components\Grid;
@@ -19,9 +18,8 @@ trait HasNetworks{
     {
         return Action::make('add Networks')
                     ->action(function ($record, array $data): void {
-                        $record->networks()->create([
-                            'url' => $data['url'],
-                            'network_info_id' =>$data['network_info_id']
+                        $record->networks()->attach([
+                            $data['network_id'] => ['url' => $data['url']],
                         ]);
                     })
                     ->form([
@@ -35,16 +33,22 @@ trait HasNetworks{
         return Action::make('Networks')
                 ->action(function ($record, array $data): void {
                     if(count($record->networks) >0){
+                        $networks = [];
+                        //dump($record->networks);
                         foreach($record->networks as $network){
-                            if($data['delete'.$network->network_info_id]){
-                                $network->delete();
+                            if($data['delete'.$network->id]){
+                                $record->networks()->detach($network->id);
                             }else{
-                                $network->update([
-                                    'url' => $data['url'.$network->network_info_id],
-                                    'network_info_id' => $data['network_info_id'.$network->network_info_id],
+                                $record->networks()->syncWithoutDetaching([
+                                    $network->id => [
+                                        'url' => $data['url'.$network->id],
+                                        'network_id' => $data['network_id'.$network->id]
+                                    ]
                                 ]);
                             }
                         }
+                        //dump($networks);
+                        //$record->networks()->sync($networks);
                     }
                 })
                 ->form(function($record): array {
@@ -52,14 +56,14 @@ trait HasNetworks{
                     foreach($record->networks as $network){
                         $networks_forms[] = Grid::make()
                         ->schema([
-                            Select::make('network_info_id'.$network->network_info_id)
-                                ->options(NetworkInfo::pluck('name', 'id'))
+                            Select::make('network_id'.$network->id)
+                                ->options(Network::pluck('name', 'id'))
                                 ->searchable()
                                 ->preload()
-                                ->default($network->network_info_id)
+                                ->default($network->id)
                                 ->required()->label('Network'),
-                                TextInput::make('url'.$network->network_info_id)->default($network->url)->required()->label('Url'),
-                                Toggle::make('delete'.$network->network_info_id)->label('Delete')->inline(false),
+                                TextInput::make('url'.$network->id)->default($network->pivot->url)->required()->label('Url'),
+                                Toggle::make('delete'.$network->id)->label('Delete')->inline(false),
                         ])->columns(3);
                     }
                     return $networks_forms;
@@ -71,8 +75,8 @@ trait HasNetworks{
     public static function getForm(){
         return Grid::make()
         ->schema([
-            Select::make('network_info_id')
-                ->options(NetworkInfo::pluck('name', 'id'))
+            Select::make('network_id')
+                ->options(Network::pluck('name', 'id'))
                 ->searchable()
                 ->preload()
                 ->required(),

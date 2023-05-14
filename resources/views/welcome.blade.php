@@ -15,7 +15,6 @@
         <livewire:styles />
     </head>
     <body>
-        @dump($user->networks())
         <header class="header">
             <a href="" class="logo">{!! $user->name !!}</a>
 
