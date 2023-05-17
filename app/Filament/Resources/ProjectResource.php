@@ -32,7 +32,8 @@ class ProjectResource extends Resource
                     Forms\Components\Textarea::make('description')->required(),
                     Forms\Components\TextInput::make('url')->url(),
                     Forms\Components\TextInput::make('url_github')->url(),
-                    FileUpload::make('banner')->image()
+                    Forms\Components\TextInput::make('banner')->url(),
+                    //FileUpload::make('banner')->image()
                 ]);
     }
 

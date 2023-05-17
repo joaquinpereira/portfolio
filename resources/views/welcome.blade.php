@@ -66,75 +66,8 @@
         </section>
 
         <section class="portfolio" id="portfolio">
-            <h2 class="heading">Latest <span>Project</span></h2>
 
-            <div class="portfolio-container">
-                <div class="portfolio-box">
-                    <img src="/images/portfolio01.png" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            quaerat quidem! Id non culpa magnam quasi voluptate quibusdam eius laudantium
-                            voluptatem qui impedit autem necessitatibus est aliquid, obcaecati quisquam iste.</p>
-                        <a href="#"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="/images/portfolio02.png" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            quaerat quidem! Id non culpa magnam quasi voluptate quibusdam eius laudantium
-                            voluptatem qui impedit autem necessitatibus est aliquid, obcaecati quisquam iste.</p>
-                        <a href="#"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="/images/portfolio03.png" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            quaerat quidem! Id non culpa magnam quasi voluptate quibusdam eius laudantium
-                            voluptatem qui impedit autem necessitatibus est aliquid, obcaecati quisquam iste.</p>
-                        <a href="#"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="/images/portfolio04.png" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            quaerat quidem! Id non culpa magnam quasi voluptate quibusdam eius laudantium
-                            voluptatem qui impedit autem necessitatibus est aliquid, obcaecati quisquam iste.</p>
-                        <a href="#"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="/images/portfolio05.png" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            quaerat quidem! Id non culpa magnam quasi voluptate quibusdam eius laudantium
-                            voluptatem qui impedit autem necessitatibus est aliquid, obcaecati quisquam iste.</p>
-                        <a href="#"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-box">
-                    <img src="/images/portfolio06.png" alt="">
-                    <div class="portfolio-layer">
-                        <h4>Web Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                            quaerat quidem! Id non culpa magnam quasi voluptate quibusdam eius laudantium
-                            voluptatem qui impedit autem necessitatibus est aliquid, obcaecati quisquam iste.</p>
-                        <a href="#"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-            </div>
+            <livewire:projects />
 
         </section>
 
@@ -155,7 +88,7 @@
 
         <section class="contact" id="contact">
 
-            @livewire("contact-component")
+            <livewire:contact-component />
 
         </section>
 
@@ -189,6 +122,8 @@
         <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
 
         @vite(['resources/js/app.js'])
+
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <script>
             // Get the modal
@@ -225,7 +160,7 @@
 
         <livewire:scripts />
 
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 
 
     </body>

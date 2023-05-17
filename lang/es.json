@@ -26,5 +26,6 @@
     "enviar mensaje": "Enviar Mensaje",
     "desarrollado en": "<p>Desarrollado in laravel con css y js en Miranda, Venezuela.</p>",
     "msg_success": "Mensaje enviado con éxito",
-    "My Skills": "Mis <span>Habilidades</span>"
+    "My Skills": "Mis <span>Habilidades</span>",
+    "Latest Project": "Últimos <span>Proyectos</span>"
 }
