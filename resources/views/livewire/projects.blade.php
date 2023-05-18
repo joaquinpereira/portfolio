@@ -8,9 +8,9 @@
                 <img src="{{$obj->banner}}" alt="{{$obj->name}}">
                 <div class="portfolio-layer">
                     <h4>{{$obj->name}}</h4>
-                    <p>{{$obj->excerpt}}</p>
+                    <p>{{ GoogleTranslate::trans($obj->excerpt, app()->getLocale()) }}</p>
                     <div>
-                        <button class="btn" wire:click="$emitTo('project', 'show', '{{$obj}}')">
+                        <button class="btn btn-project" wire:click="$emitTo('project', 'show', '{{$obj}}')">
                             <i class='bx bx-show' ></i>
                         </button>
                     </div>

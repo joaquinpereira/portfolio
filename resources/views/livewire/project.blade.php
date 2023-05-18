@@ -2,9 +2,9 @@
     <x-modal wire:model="show">
         <div
             class="block">
-            <div class="max-h-[36rem]">
+            <div class="max-h-[36rem] aspect-video text-center mx-auto">
                 <img
-                class="border-t-4 border-x-4 border-white rounded-t-2xl max-h-[36rem] w-full"
+                class="border-t-4 border-x-4 border-white rounded-t-2xl max-h-[36rem] aspect-video"
                 src="{{ $obj['banner'] ?? '' }}"
                 alt="" />
             </div>
@@ -12,10 +12,10 @@
             <div class="p-6 text-white" >
                 <h5
                 class="mb-2 text-6xl font-medium leading-tight">
-                    {{ $obj['name'] ?? '' }}
+                    {{ isset($obj['name']) ? GoogleTranslate::trans($obj['name'], app()->getLocale()) : '' }}
                 </h5>
-                <p class="text-base text-4xl">
-                    {{ $obj['description'] ?? '' }}
+                <p class="text-3xl">
+                    {{ isset($obj['description']) ? GoogleTranslate::trans($obj['description'], app()->getLocale()) : '' }}
                 </p>
             </div>
             <div class="social-media text-center ">

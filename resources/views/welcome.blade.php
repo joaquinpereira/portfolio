@@ -45,7 +45,7 @@
                 <h3>@lang('Hola, mi nombre es')</h3>
                 <h1>{!! $user->name !!}</h1>
                 {{-- <h3>And I'm a <span class="multiple-text"></span></h3> --}}
-                <div>{!! $user->about_short !!}</div>
+                <div>{!! GoogleTranslate::trans($user->about_short, app()->getLocale()) !!}</div>
                 <div class="social-media">
                     @foreach ($user->networks as $network)
                         <a target="blank" href="{{$network->pivot->url}}">{!! $network->icon !!}</a>
@@ -78,8 +78,8 @@
 
             <div class="about-content">
                 <h2 class="heading">@lang('acerca de mi')</h2>
-                <h3>{!! $user->profession !!}</h3>
-                <div>{!! $user->about_long !!}</div>
+                <h3>{!! GoogleTranslate::trans($user->profession, app()->getLocale()) !!}</h3>
+                <div>{!! GoogleTranslate::trans($user->about_long, app()->getLocale()) !!}</div>
 
                 {{-- <a href="#" class="btn hidden">Read More</a> --}}
 
